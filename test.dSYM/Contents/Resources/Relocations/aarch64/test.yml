@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/tudor/Documents/f/LimbajeFormale_Compilatoare/LimbajeFormale/test'
+relocations:     []
+...
