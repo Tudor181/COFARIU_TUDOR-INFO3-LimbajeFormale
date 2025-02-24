@@ -44,21 +44,114 @@
 // }
 
 // ex2
+// #include <iostream>
+// #include <string>
+// #include <vector>
+
+// using namespace std;
+
+// int encodeChar(char c)
+// {
+//     if (c == 'c')
+//         return 0;
+//     if (c == 'a')
+//         return 1;
+//     if (c == 't')
+//         return 2;
+//     return 3;
+// }
+
+// void transit(const char value, const vector<pair<int, vector<int>>> &transitions, int &startQ)
+// {
+//     const char translatedValue = encodeChar(value);
+//     // startQ = transitions.
+//     for (auto transition : transitions)
+//     {
+//         if (transition.first == startQ)
+//         {
+//             startQ = transition.second[translatedValue];
+//             return;
+//         }
+//     }
+//     // return true;
+// }
+
+// int main()
+// {
+//     const int input[] = {0, 1};   // sigma
+//     const int output = 3;         // F
+//     const int q[] = {0, 1, 2, 3}; // starile
+//     int startQ = q[0];            // q0 start value
+
+//     vector<pair<int, vector<int>>> transitions = {{q[0], {1, 0, 0, 0}}, {q[1], {1, 2, 0, 0}}, {q[2], {1, 0, 3, 0}}, {q[3], {3, 3, 3, 3}}};
+
+//     const string test = "xcat";
+
+//     vector<string> testCases = {
+
+//         "cat",
+//         "xcat",
+//         "catx",
+//         "xxcatxx",
+//         "cata",
+//         "dogcat",
+//         "catch",
+//         "xcxaxct",
+
+//         "c a t",
+//         "ca",
+//         "cta",
+//         "tac",
+//         "atc",
+//         "xcty",
+//         "",
+//         "randomtext",
+
+//         "caaaaaaaaaaaaaaaaaat",
+//         "cccccaaaaattttt",
+//         "CCCCat",
+//         "cAt",
+//         "C A T"};
+
+//     for (string Case : testCases)
+//     {
+
+//         for (char c : Case)
+//         {
+//             cout << "v:" << c << ' ';
+//             cout << "q:" << startQ << '\n';
+//             transit(c, transitions, startQ);
+//         }
+//         cout << 'q' << startQ << '\n';
+
+//         if (startQ == output)
+//         {
+//             cout << "TEST VALUE: '" << Case << "' -> contains 'cat'" << startQ << "\n\n";
+//         }
+//         else
+//         {
+//             cout << "TEST VALUE: '" << Case << "' not contained" << "\n\n";
+//         }
+//         startQ = 0;
+//     }
+// }
+
+// ex3
 #include <iostream>
 #include <string>
 #include <vector>
 
 using namespace std;
 
-int encodeChar(char c)
+int encodeChar(int c)
 {
-    if (c == 'c')
-        return 0;
     if (c == 'a')
+        return 0;
+    if (c == 'b')
         return 1;
-    if (c == 't')
+    if (c == 'c')
         return 2;
-    return 3; // Any other character
+    return 3;
 }
 
 void transit(const char value, const vector<pair<int, vector<int>>> &transitions, int &startQ)
@@ -78,40 +171,19 @@ void transit(const char value, const vector<pair<int, vector<int>>> &transitions
 
 int main()
 {
-    const int input[] = {0, 1};   // sigma
+    const char input[] = {'a', 'b', 'c', 'd'}; // sigma
+    const int input2[] = {0, 1, 2, 3};         // sigma
+
     const int output = 3;         // F
     const int q[] = {0, 1, 2, 3}; // starile
     int startQ = q[0];            // q0 start value
 
-    vector<pair<int, vector<int>>> transitions = {{q[0], {1, 0, 0, 0}}, {q[1], {1, 2, 0, 0}}, {q[2], {1, 0, 3, 0}}, {q[3], {3, 3, 3, 3}}};
+    vector<pair<int, vector<int>>> transitions = {{q[0], {1, 0, 0, 0}}, {q[1], {1, 2, 1, 1}}, {q[2], {2, 2, 2, 3}}, {q[3], {3, 3, 3, 3}}};
 
-    const string test = "xcat";
+    // string word = "xcat";
 
-    vector<string> testCases = {
-
-        "cat",
-        "xcat",
-        "catx",
-        "xxcatxx",
-        "cata",
-        "dogcat",
-        "catch",
-        "xcxaxct",
-
-        "c a t",
-        "ca",
-        "cta",
-        "tac",
-        "atc",
-        "xcty",
-        "",
-        "randomtext",
-
-        "caaaaaaaaaaaaaaaaaat",
-        "cccccaaaaattttt",
-        "CCCCat",
-        "cAt",
-        "C A T"};
+    vector<string>
+        testCases = {"aabbcc", "aaa", "bbbaac"};
 
     for (string Case : testCases)
     {
@@ -135,3 +207,6 @@ int main()
         startQ = 0;
     }
 }
+
+// RE - for python
+// ex 4
