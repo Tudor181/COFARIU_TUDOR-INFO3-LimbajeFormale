@@ -1,5 +1,5 @@
 
-// ex1
+// ex1 - Moore
 // #include <iostream>
 // #include <string>
 // #include <vector>
@@ -53,7 +53,7 @@
 //     cout << exit << endl;
 // }
 
-// ex2
+// ex2 - Mealy
 
 #include <iostream>
 #include <string>
