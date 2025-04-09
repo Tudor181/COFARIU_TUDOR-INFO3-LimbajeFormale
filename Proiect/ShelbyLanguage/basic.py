@@ -1653,7 +1653,7 @@ class BuiltInFunction(BaseFunction):
     execute_input_int.arg_names = []
 
     def execute_clear(self, exec_ctx):
-        os.system("cls" if os.name == "nt" else "cls")
+        os.system("cls" if os.name == "nt" else "clear")
         return RTResult().success(Number.null)
 
     execute_clear.arg_names = []
@@ -2057,7 +2057,6 @@ class Interpreter:
         # in final Parser returneaza un CallNode care cuprinde un node_to_call si args_nodes
         # 3. Interpreter - visit nodul de tip CallNode care viziteaza node_to_call (de tip visit_VarAccessNode), respectiv fiecare argument daca exista, apoi apeleaza nodul pt ca acel nod a fost accesat ca si ValueAccessNode
         # care a adus valoarea din symbol table si e de tip BuiltInFunction pt ca a fost predefinita, si ii da si argumentele necesare, astfel functia va apela BuiltInF.execute(args) care mai departe va decide ce functie trb sa apeleze execute_print de exemplu dupa numele functiei predefinita in symbolTable si aceasta va genera raspunsul dorit.
-        #  si node_to_call e callable deoarece in symbol table ia valoarea lui care e o functie BuiltIn stocata in symbolTable
         value_to_call = res.register(self.visit(node.node_to_call, context))
         if res.error:
             return res
