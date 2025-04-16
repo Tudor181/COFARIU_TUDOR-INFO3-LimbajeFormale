@@ -2524,7 +2524,7 @@ def run(file_name, text):
     if error:
         return None, error
 
-    # Generate AST
+    # Generate AST (5+7)*2  -> y * x
     parser = Parser(tokens)
     ast = parser.parse()
     if ast.error:
